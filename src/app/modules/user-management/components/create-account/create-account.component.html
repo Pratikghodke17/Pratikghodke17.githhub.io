@@ -1,0 +1,60 @@
+<app-header></app-header>
+<div class="container">
+    <div class="shadow-lg p-3 mb-5 bg-body rounded">
+      <form class="row g-4">
+        <div class="col-md-6">
+            <label for="inputEmail4" class="form-label">First Name</label>
+            <input  [(ngModel)]="firstName"  [ngModelOptions]="{standalone: true}" type="text" class="form-control" placeholder="First Name" >
+          </div>
+          <div class="col-md-6">
+            <label for="inputPassword4" class="form-label">Last Name</label>
+            <input [(ngModel)]="lastName"  [ngModelOptions]="{standalone: true}" type="test" class="form-control" placeholder="Last Name" >
+          </div>
+        <div class="col-md-6">
+          <label for="inputEmail" class="form-label">Email</label>
+          <input [(ngModel)]="email"  [ngModelOptions]="{standalone: true}" type="email" class="form-control" placeholder="john@example.com" >
+        </div>
+        <div class="col-md-6">
+          <label for="inputPassword4" class="form-label">Password</label>
+          <input [(ngModel)]="password" [ngModelOptions]="{standalone: true}" type="password" class="form-control" placeholder="*********" >
+        </div>
+        <div class="col-md-6">
+          <label for="Subscription" class="form-label">Subscription</label>
+          <select [(ngModel)]="subscription" [ngModelOptions]="{standalone: true}" class="form-control mt-2"  >
+            <option value = "none" selected="selected">Select Subscription</option>
+            <option *ngFor="let option of options" [value]="option.id">
+              {{option.name}}
+             </option> 
+            <!-- <option>Mobile (Rs 199/month)</option>
+            <option>Standard (Rs 299/month)</option>
+            <option>Premium (Rs 499/month)</option>
+            <option>Premium Pro(Rs 699/month)</option> -->
+          </select>
+        </div>
+        <div class="col-12">
+          <button type="submit"  (click)="createaccount()" class="btn  btn-primary " data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Create Account
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title text-success " id="exampleModalLabel">Alert</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+         {{mgs}}
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <a class="btn btn-primary" routerLink="/signin" routerLinkActive="activebutton" data-bs-dismiss="modal" type="button">Sign In</a>
+        </div>
+      </div>
+    </div>
+  </div> -->
