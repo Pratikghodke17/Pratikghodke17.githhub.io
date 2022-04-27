@@ -54,6 +54,12 @@ export class ServiceService {
     );
   }
 
+  reset(acc:Account): Observable<any> {
+    return this.http.post(endpoint + 'update',acc).pipe(
+      catchError(this.handleError)
+    );
+  }
+
 
  
 }

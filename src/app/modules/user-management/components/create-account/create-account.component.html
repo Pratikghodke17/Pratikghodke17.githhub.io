@@ -1,6 +1,7 @@
 <app-header></app-header>
 <div class="container">
     <div class="shadow-lg p-3 mb-5 bg-body rounded">
+      <!-- <h3 class="text-center p-5 ">Create New Account</h3> -->
       <form class="row g-4">
         <div class="col-md-6">
             <label for="inputEmail4" class="form-label">First Name</label>
@@ -21,7 +22,7 @@
         <div class="col-md-6">
           <label for="Subscription" class="form-label">Subscription</label>
           <select [(ngModel)]="subscription" [ngModelOptions]="{standalone: true}" class="form-control mt-2"  >
-            <option value = "none" selected="selected">Select Subscription</option>
+            <option value = "" selected="selected">-- Select Subscription --</option>
             <option *ngFor="let option of options" [value]="option.id">
               {{option.name}}
              </option> 
@@ -31,8 +32,21 @@
             <option>Premium Pro(Rs 699/month)</option> -->
           </select>
         </div>
-        <div class="col-12">
-          <button type="submit"  (click)="createaccount()" class="btn  btn-primary " data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <div class="col-md-6">
+          <label for="Question" class="form-label">Security  Question</label>
+          <select [(ngModel)]="question" [ngModelOptions]="{standalone: true}" class="form-control mt-2"  >
+            <option value = "" selected="selected">-- Select Question --</option>
+            <option *ngFor="let q of questions" [value]="q.id">
+              {{q.question}}
+             </option> 
+          </select>
+        </div>
+        <div class="col-md-6">
+          <label for="inputPassword4" class="form-label">Your Answer</label>
+          <input [(ngModel)]="answer"  [ngModelOptions]="{standalone: true}" type="test" class="form-control" placeholder="Answer" >
+        </div>
+        <div class="col-12 ">
+          <button type="submit"  (click)="createaccount()" class="btn  btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
             Create Account
           </button>
         </div>

@@ -14,12 +14,19 @@ export class CreateAccountComponent   {
     {name: "Premium (Rs 499/month)", id: "Premium"},
     {name: "Premium Pro(Rs 699/month)", id: "PremiumPro"},
   ]
+  questions = [
+    {question: "What is the name of your favorite pet?", id: "pet"},
+    {question: "What city were you born in?", id: "city"},
+    {question: "What was the make of your first car?", id: "car"},
+  ]
   constructor( private userService : ServiceService , private router : Router) { }
   public firstName = ''
   public lastName = ''
   public email = ''
   public password = ''
   public subscription = ''
+  public question = ''
+  public answer = ''
   public mgs = ''
   objPost = Response;
 
@@ -31,6 +38,8 @@ export class CreateAccountComponent   {
     acc.email = this.email;
     acc.password = this.password;
     acc.subscription = this.subscription;
+    acc.question = this.question;
+    acc.answer = this.answer;
     console.log(acc);
     this.userService.createaccount(acc).subscribe(
       (resp: any) => {
@@ -49,6 +58,8 @@ export class Account {
   email: string | undefined;
   password: string | undefined;
   subscription: string | undefined;
+  question : string | undefined;
+  answer :  string | undefined;
 }
 
 export class Response {

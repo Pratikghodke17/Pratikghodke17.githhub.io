@@ -12,9 +12,17 @@ import { Account } from '../create-account/create-account.component';
 export class SignInComponent implements OnInit  {
   public email = ''
   public password = ''
+  public question = ''
+  public answer = ''
   response = Response
   isValid = '';
   err = ''
+
+  questions = [
+    {question: "What is the name of your favorite pet?", id: "pet"},
+    {question: "What city were you born in?", id: "city"},
+    {question: "What was the make of your first car?", id: "car"},
+  ]
 
   constructor( private route: ActivatedRoute, private router: Router, private service: ServiceService) { }
   ngOnInit(): void {
@@ -50,9 +58,38 @@ export class SignInComponent implements OnInit  {
     );
   }
 
+
+  reset(){
+    var acc = new Account();
+    acc.email = this.email;
+    acc.password = this.password;
+    acc.question = this.question;
+    acc.answer = this.answer;
+    this.service.reset(acc).subscribe(
+      (resp: any) => {
+      console.log(resp);
+      this.response = resp;
+      this.isValid = resp.mgs;
+      if (this.isValid === "true" ) {
+        console.log(this.isValid,resp.role);
+        alert("Password Reset Successfull");
+        this.password = ''
+        return true
+      }else {
+        this.err = "Invalid Credentials"
+        alert(this.err);
+        return false
+      }
+    }
+    );
+  }
 }
 
 export class Response {
   mgs : string | undefined;
   role : string | undefined;
+}
+
+function subscribe(arg0: (resp: any) => boolean) {
+  throw new Error('Function not implemented.');
 }
