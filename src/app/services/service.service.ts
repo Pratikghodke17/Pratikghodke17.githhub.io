@@ -9,25 +9,25 @@ import { Account } from '../modules/user-management/components/create-account/cr
 const endpoint = 'http://localhost:3000/';
 @Injectable()
 export class ServiceService {
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router : Router) { }
   
   
-  // setToken(token: string): void {
-  //   localStorage.setItem('token', token);
-  // }
+  setToken(token: string): void {
+    localStorage.setItem('token', token);
+  }
 
-  // getToken(): string | null {
-  //   return localStorage.getItem('token');
-  // }
+  getToken(): string | null {
+    return localStorage.getItem('token');
+  }
 
-  // isLoggedIn() {
-  //   return this.getToken() !== null;
-  // }
+  isLoggedIn() {
+    return this.getToken() !== null;
+  }
 
-  // logout() {
-  //   localStorage.removeItem('token');
-  //   this.router.navigate(['signin']);
-  // }
+  logout() {
+    localStorage.removeItem('token');
+    this.router.navigate(['signin']);
+  }
 
   private handleError(error: HttpErrorResponse): any {
     if (error.error instanceof ErrorEvent) {
@@ -60,6 +60,4 @@ export class ServiceService {
     );
   }
 
-
- 
 }

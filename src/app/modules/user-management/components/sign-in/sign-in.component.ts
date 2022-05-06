@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ServiceService } from 'src/app/services/service.service';
-// import { AccountService } from '../../../create-account-service.service';
+
 import { Account } from '../create-account/create-account.component';
 
 @Component({
@@ -26,9 +26,9 @@ export class SignInComponent implements OnInit  {
 
   constructor( private route: ActivatedRoute, private router: Router, private service: ServiceService) { }
   ngOnInit(): void {
-    // if (this.accountService.isLoggedIn()) {
-    //   this.router.navigate(['userhome']);
-    // }
+    if (this.service.isLoggedIn()) {
+      this.router.navigate(['userhome']);
+    }
   }
 
   signin(){
@@ -40,13 +40,13 @@ export class SignInComponent implements OnInit  {
       console.log(resp);
       this.response = resp;
       this.isValid = resp.mgs;
-      if (this.isValid === "true" && resp.role === "customer") {
+      if (this.isValid === "valid" && resp.role === "customer") {
         console.log(this.isValid,resp.role);
-        // this.service.setToken('abcdefghijklmnopqrstuvwxyzcustomer');
+        this.service.setToken('abcdefghijklmnopqrstuvwxyzcustomer');
         this.router.navigate(['/userhome']);
         return true
-      }else if( this.isValid==="true" && resp.role === "admin"){
-         // this.service.setToken('abcdefghijklmnopqrstuvwxyzadmin');
+      }else if( this.isValid==="valid" && resp.role === "admin"){
+         this.service.setToken('abcdefghijklmnopqrstuvwxyzadmin');
         this.router.navigate(['/adminhome']);
         return true
       }else {
@@ -70,7 +70,7 @@ export class SignInComponent implements OnInit  {
       console.log(resp);
       this.response = resp;
       this.isValid = resp.mgs;
-      if (this.isValid === "true" ) {
+      if (this.isValid === "valid" ) {
         console.log(this.isValid,resp.role);
         alert("Password Reset Successfull");
         this.password = ''
