@@ -1,0 +1,102 @@
+<app-header></app-header>
+<!-- <div class="container justify-content-center">
+    <div class="shadow-lg p-3 mb-5 bg-body rounded ">
+      <form class="row g-3">
+        <div class="col-md-6">
+          <label for="inputEmail4" class="form-label">Email</label>
+          <input type="email" [(ngModel)]="email"  [ngModelOptions]="{standalone: true}" class="form-control"  placeholder="john@example.com">
+        </div>
+        <div class="col-md-6">
+          <label for="inputPassword4" class="form-label">Password</label>
+          <input type="password" [(ngModel)]="password"  [ngModelOptions]="{standalone: true}" class="form-control"  placeholder="************">
+        </div>
+        <div class="col-12">
+          <a class="btn btn-primary"   routerLink="/signin" routerLinkActive="activebutton" type="submit">Sign in</a>
+           <div class="errmgs">{{ err }}</div>
+        </div>
+      </form>
+    </div>
+  </div> -->
+
+  <div class="container shadow-lg p-3 mb-5 bg-body rounded">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-md-9 col-lg-6 col-xl-5 mb-5">
+        <img src="https://clickitornot.com/wp-content/uploads/2020/01/jio-cinema.jpg"
+          class="img-fluid" alt="Sample image" >
+      </div>
+      <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+        <form>
+          <!-- Email input -->
+          <div class="form-outline mb-4">
+            <label for="inputEmail4" class="form-label">Email</label>
+            <input type="email" [(ngModel)]="email"  [ngModelOptions]="{standalone: true}" class="form-control form-control-lg"  placeholder="john@example.com" required>
+          </div>
+
+          <!-- Password input -->
+          <div class="form-outline mb-3">
+            <label for="inputPassword4" class="form-label">Password</label>
+            <input type="password" [(ngModel)]="password"  [ngModelOptions]="{standalone: true}" class="form-control  form-control-lg"  placeholder="************" required>
+          </div>
+
+          <div class="d-flex justify-content-between align-items-center">
+            <a class="text-body" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+              Forgot password?
+            </a>
+        
+          </div>
+
+          <div class="text-center text-lg-start mt-4 pt-2">
+            <button type="submit" class="btn btn-primary btn-lg"
+              style="padding-left: 2.5rem; padding-right: 2.5rem;" (click)="signin()">Login</button>
+            <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a routerLink="/createaccount"
+                class="link-danger">Register</a></p>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+ 
+
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Forgot Password</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="col-md-12">
+          <label for="inputEmail" class="form-label">Email</label>
+          <input [(ngModel)]="email"  [ngModelOptions]="{standalone: true}" type="email" class="form-control" placeholder="john@example.com" >
+        </div>
+        <div class="col-md-12">
+          <label for="Question" class="form-label">Security  Question</label>
+          <select [(ngModel)]="question" [ngModelOptions]="{standalone: true}" class="form-control "  >
+            <option value = "" selected="selected" >-- Select Question --</option>
+            <option *ngFor="let q of questions" [value]="q.id">
+              {{q.question}}
+             </option> 
+          </select>
+        </div>
+        <div class="col-md-12">
+          <label for="inputPassword4" class="form-label">Your Answer</label>
+          <input [(ngModel)]="answer"  [ngModelOptions]="{standalone: true}" type="test" class="form-control" placeholder="Answer" >
+        </div>
+        <div class="form-outline mb-3">
+          <label for="inputPassword4" class="form-label">New Password</label>
+          <input type="password" [(ngModel)]="password"  [ngModelOptions]="{standalone: true}" class="form-control  form-control-lg"  placeholder="************">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" (click)="reset()">Reset Password</button>
+        
+      </div>
+    </div>
+  </div>
+</div>

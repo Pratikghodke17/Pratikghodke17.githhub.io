@@ -1,0 +1,41 @@
+<div class="container-fluid "  data-mdb-sticky-direction="up" >
+    <div class="shadow-lg p-3 mb-5 bg-body rounded">
+      <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid">
+          <div class="j-listBlock align-middle">
+            <div class="j-listBlock__main">
+              <div class="j-listBlock__prefix">
+                <span
+                  class="j-icon"
+                  style="
+                    --icon-size-svg: 100%;
+                    --icon-size: var(--spacing-l);
+                  "
+                >
+                  <img
+                    src="https://jep-asset.akamaized.net/jio/svg/logo/jiocinema-n.svg"
+                    alt="JioCinema"
+                    class="l-radius--large overflow-initial"
+                    loading="lazy"
+                  />
+                </span>
+              </div>
+              <div
+                class="j-contentBlock__title j-heading j-text-heading-xs" 
+              > <a class="navbar-brand"  routerLink="/home" routerLinkActive="activebutton">
+                JioCinema
+              </a>
+              </div>
+            </div>
+          </div>
+         
+          <form class="d-flex">
+            <!-- <i class="login__icon fas fa-user"></i> -->
+            <input class="form-control me-2 rounded-pill" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-success me-3 rounded-pill" type="submit">Search</button>
+            <a class="btn btn-primary p-2 text-light fst-italic fw-bold ps-4 pe-4 rounded " routerLink="/login" routerLinkActive="activebutton">Login</a>
+          </form>
+        </div>
+      </nav>
+    </div>
+  </div>
